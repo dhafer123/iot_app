@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:iot_app/sign_in_page.dart';
-
+import 'package:iot_app/sign_in_page.dart'; // Ensure this import is correct
 
 class signup_screen extends StatefulWidget {
   const signup_screen({super.key});
@@ -10,8 +9,14 @@ class signup_screen extends StatefulWidget {
 }
 
 class _signup_screenState extends State<signup_screen> {
-  //This function is used for visibility of the user password characters
+  // This function is used for visibility of the user password characters
   bool _isObscure = true;
+
+  // Dropdown value
+  String? _selectedRole;
+
+  // Dropdown items
+  final List<String> _roles = ['Client', 'Responsable'];
 
   @override
   Widget build(BuildContext context) {
@@ -28,29 +33,17 @@ class _signup_screenState extends State<signup_screen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   SizedBox(
-                    height: 30,
                     child: Text(
                       'Create your account',
                       style: TextStyle(
                           fontFamily: 'poppins',
-                          color: Colors.purple.shade900,
+                          color: Colors.blue.shade800,
                           fontSize: 30,
                           fontWeight: FontWeight.w600),
                     ),
                   ),
-                  SizedBox(
-                    height: 30,
-                    child: Text(
-                      'Lets get you started with your 30-days free trial',
-                      style: TextStyle(
-                          fontFamily: 'poppins',
-                          color: Colors.black,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400),
-                    ),
-                  ),
                   // Here's the Path of the Login Form
-                  SizedBox(height: 15),
+                  SizedBox(height: 5),
                   TextField(
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
@@ -107,11 +100,34 @@ class _signup_screenState extends State<signup_screen> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                       )),
-                  //SingUP Button
+                  SizedBox(height: 15),
+                  // Dropdown for selecting role
+                  DropdownButtonFormField<String>(
+                    value: _selectedRole,
+                    onChanged: (String? newValue) {
+                      setState(() {
+                        _selectedRole = newValue;
+                      });
+                    },
+                    decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.people_alt),
+                      contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
+                      labelText: "Select Role",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    items: _roles.map<DropdownMenuItem<String>>((String value) {
+                      return DropdownMenuItem<String>(
+                        value: value,
+                        child: Text(value),
+                      );
+                    }).toList(),
+                  ),
                   SizedBox(height: 22),
                   Material(
                     borderRadius: BorderRadius.circular(8),
-                    color: Color.fromARGB(255, 53, 4, 36),
+                    color: Colors.blue.shade800,
                     child: MaterialButton(
                       padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
                       minWidth: MediaQuery.of(context).size.width,
@@ -144,12 +160,12 @@ class _signup_screenState extends State<signup_screen> {
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: const <Widget>[
+                          children:  <Widget>[
                             Center(
                               child: Text(
                                 'Login Now',
                                 style: TextStyle(
-                                  color: Color.fromARGB(255, 53, 4, 36),
+                                  color: Colors.blue[800],
                                   fontFamily: 'Montserrat',
                                   fontSize: 16,
                                   fontWeight: FontWeight.w600,

@@ -32,23 +32,13 @@ class _login_screenState extends State<login_screen> {
                         'Welcome Back,',
                         style: TextStyle(
                             fontFamily: 'Montserrat',
-                            color: Colors.purple.shade900,
+                            color: Colors.blue[800],
                             fontSize: 35,
                             fontWeight: FontWeight.w600),
                       ),
                     ),
-                    SizedBox(
-                      height: 35,
-                      child: Text(
-                        'lets set off to the kingdom....',
-                        style: TextStyle(
-                            fontFamily: 'Montserrat',
-                            color: Colors.purple.shade900,
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400),
-                      ),
-                    ),
-                    SizedBox(height: 2),
+            
+                    SizedBox(height: 20),
                     TextField(
                       textInputAction: TextInputAction.next,
                       decoration: InputDecoration(
@@ -84,12 +74,12 @@ class _login_screenState extends State<login_screen> {
                     const SizedBox(height: 35),
                     Material(
                       borderRadius: BorderRadius.circular(8),
-                      color: Colors.purple[900],
+                      color: Colors.blue.shade800,
                       child: MaterialButton(
                         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
                         minWidth: MediaQuery.of(context).size.width,
                         onPressed: () {},
-                        child: const Text("Login",
+                        child: Text("Login",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 20,
@@ -116,7 +106,7 @@ class _login_screenState extends State<login_screen> {
                             "SignUp",
                             style: TextStyle(
                                 fontFamily: 'poppins',
-                                color: Colors.purple.shade900,
+                                color: Colors.blue[800],
                                 fontWeight: FontWeight.w600,
                                 fontSize: 19),
                           ),
@@ -131,7 +121,7 @@ class _login_screenState extends State<login_screen> {
                         "OR",
                         style: TextStyle(
                           fontSize: 14,
-                          color: Colors.purple.shade900,
+                          color: Colors.blue[800],
                           fontWeight: FontWeight.w900,
                           fontStyle: FontStyle.normal,
                         ),
@@ -152,7 +142,7 @@ class _login_screenState extends State<login_screen> {
                           child: Container(
                             decoration: BoxDecoration(
                               border: Border.all(
-                                color: Colors.purple.shade900,
+                              color:Colors.black,
                               ),
                               borderRadius: BorderRadius.circular(8),
                             ),
@@ -163,7 +153,7 @@ class _login_screenState extends State<login_screen> {
                                   child: Text(
                                     'Sign In with Google',
                                     style: TextStyle(
-                                      color: Colors.purple.shade900,
+                                      color: Colors.blue.shade800,
                                       fontFamily: 'Montserrat',
                                       fontSize: 16,
                                       fontWeight: FontWeight.w600,
