@@ -86,7 +86,7 @@ class _signup_screenState extends State<signup_screen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 15),
                   TextField(
                       textInputAction: TextInputAction.next,
                       obscureText: _isObscure,
