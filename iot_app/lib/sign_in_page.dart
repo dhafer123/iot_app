@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iot_app/responsable_screen.dart';
 import 'package:iot_app/signup_screen.dart';
 
 
@@ -78,13 +79,19 @@ class _login_screenState extends State<login_screen> {
                       child: MaterialButton(
                         padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
                         minWidth: MediaQuery.of(context).size.width,
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ResponsablePage()));
+                        },
                         child: Text("Login",
                             textAlign: TextAlign.center,
                             style: TextStyle(
                                 fontSize: 20,
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold)),
+                                
                       ),
                     ),
                     SizedBox(height: 15),
@@ -137,7 +144,7 @@ class _login_screenState extends State<login_screen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => login_screen()));
+                                    builder: (context) => ResponsablePage()));
                           },
                           child: Container(
                             decoration: BoxDecoration(
