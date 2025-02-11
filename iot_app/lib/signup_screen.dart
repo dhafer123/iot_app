@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:iot_app/sign_in_page.dart'; // Ensure this import is correct
+import 'package:iot_app/sign_in_page.dart'; // Assurez-vous que cet import est correct
 
-class signup_screen extends StatefulWidget {
-  const signup_screen({super.key});
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
   @override
-  State<signup_screen> createState() => _signup_screenState();
+  State<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _signup_screenState extends State<signup_screen> {
-  // This function is used for visibility of the user password characters
+class _SignupScreenState extends State<SignupScreen> {
+  // Cette fonction est utilisée pour la visibilité des caractères du mot de passe
   bool _isObscure = true;
 
-  // Dropdown value
+  // Valeur du dropdown
   String? _selectedRole;
 
-  // Dropdown items
+  // Éléments du dropdown
   final List<String> _roles = ['Client', 'Responsable'];
 
   @override
@@ -32,9 +32,10 @@ class _signup_screenState extends State<signup_screen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
+                  // Titre
                   SizedBox(
                     child: Text(
-                      'Create your account',
+                      'Créez votre compte',
                       style: TextStyle(
                           fontFamily: 'poppins',
                           color: Colors.blue.shade800,
@@ -42,44 +43,47 @@ class _signup_screenState extends State<signup_screen> {
                           fontWeight: FontWeight.w600),
                     ),
                   ),
-                  // Here's the Path of the Login Form
+                  // Champ pour le nom
                   SizedBox(height: 5),
                   TextField(
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.person_rounded),
                       contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-                      labelText: "First Name",
+                      labelText: "Nom",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
                   SizedBox(height: 10),
+                  // Champ pour le prénom
                   TextField(
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.person_rounded),
                       contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-                      labelText: "Last Name",
+                      labelText: "Prénom",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
                   SizedBox(height: 10),
+                  // Champ pour l'email
                   TextField(
                     textInputAction: TextInputAction.next,
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.mail),
                       contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-                      labelText: "Email",
+                      labelText: "Adresse email",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
                   SizedBox(height: 15),
+                  // Champ pour le mot de passe
                   TextField(
                       textInputAction: TextInputAction.next,
                       obscureText: _isObscure,
@@ -95,13 +99,13 @@ class _signup_screenState extends State<signup_screen> {
                               });
                             }),
                         contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-                        labelText: "Password",
+                        labelText: "Mot de passe",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
                         ),
                       )),
                   SizedBox(height: 15),
-                  // Dropdown for selecting role
+                  // Dropdown pour sélectionner le rôle
                   DropdownButtonFormField<String>(
                     value: _selectedRole,
                     onChanged: (String? newValue) {
@@ -112,7 +116,7 @@ class _signup_screenState extends State<signup_screen> {
                     decoration: InputDecoration(
                       prefixIcon: Icon(Icons.people_alt),
                       contentPadding: EdgeInsets.fromLTRB(20, 15, 20, 15),
-                      labelText: "Select Role",
+                      labelText: "Rôle",
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
@@ -125,6 +129,7 @@ class _signup_screenState extends State<signup_screen> {
                     }).toList(),
                   ),
                   SizedBox(height: 22),
+                  // Bouton d'inscription
                   Material(
                     borderRadius: BorderRadius.circular(8),
                     color: Colors.blue.shade800,
@@ -132,7 +137,7 @@ class _signup_screenState extends State<signup_screen> {
                       padding: EdgeInsets.fromLTRB(20, 15, 20, 15),
                       minWidth: MediaQuery.of(context).size.width,
                       onPressed: () {},
-                      child: const Text("Sign up",
+                      child: const Text("S'inscrire",
                           textAlign: TextAlign.center,
                           style: TextStyle(
                               fontFamily: 'Montserrat',
@@ -142,6 +147,7 @@ class _signup_screenState extends State<signup_screen> {
                     ),
                   ),
                   SizedBox(height: 22),
+                  // Lien vers la page de connexion
                   Container(
                     height: 50.0,
                     child: GestureDetector(
@@ -160,10 +166,10 @@ class _signup_screenState extends State<signup_screen> {
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children:  <Widget>[
+                          children: <Widget>[
                             Center(
                               child: Text(
-                                'Login Now',
+                                'Se connecter',
                                 style: TextStyle(
                                   color: Colors.blue[800],
                                   fontFamily: 'Montserrat',
@@ -177,7 +183,18 @@ class _signup_screenState extends State<signup_screen> {
                         ),
                       ),
                     ),
-                  )
+                  ),
+                  // Logo en bas à droite
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 90.0),
+                      child: Image.asset(
+                        'assets/images/logoiot.png', // Assurez-vous d'avoir l'image dans ce chemin
+                        height: 70, // Taille du logo
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
